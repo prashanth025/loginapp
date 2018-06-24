@@ -1,0 +1,25 @@
+<!-- <app-alert></app-alert> -->
+    <div class="col-md-6 login-form  col-md-offset-3">
+      <h3 class="welcome">Welcome!</h3>
+      <form #f="ngForm" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group mb-25" [ngClass]="{ 'has-error': f.submitted && !userID.valid }">
+          <label for="exampleInputEmail1">User Name
+            <span class="star">*</span>
+          </label>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter user ID" name="userID" [(ngModel)]="model.username" #userID="ngModel" required required>
+          <div *ngIf="f.submitted && !userID.valid" class="help-block error text-danger ">User ID is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <label for="exampleInputPassword1">Password
+            <span class="star">*</span>
+          </label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password" name="password" [(ngModel)]="model.password" #password="ngModel" required>
+          <div *ngIf="f.submitted && !password.valid" class="help-block error text-danger">Password is required</div>
+        </div>
+        
+        <button type="submit" class="col-xs-12 col-md-12 btn btn-primary">Login</button>
+        <button type="button" class="col-xs-12 col-md-12 btn btn-primary registerButton" routerLink='/registerhere'>Register</button>
+      </form>
+
+  </div>
+
